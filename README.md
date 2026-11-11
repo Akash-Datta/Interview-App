@@ -215,12 +215,6 @@ curl -X POST http://localhost:3000/api/interview/report/<id>/roadmap \
 
 ---
 
-## 🚢 Deployment
-
-See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for the full production checklist — environment variables, MongoDB Atlas setup, HTTPS/cookies/CORS, Puppeteer/Chromium notes, security hardening, and a smoke-test plan.
-
----
-
 ## 📄 License
 
 MIT — free to use and adapt for your own interview prep.
