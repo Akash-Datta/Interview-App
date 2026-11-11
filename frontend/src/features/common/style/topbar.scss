@@ -1,0 +1,115 @@
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: auto;
+    min-height: var(--topbar-h);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    // Keeps the bar below the notch / status bar on standalone phones.
+    padding-top: env(safe-area-inset-top, 0px);
+    background: rgba(13, 17, 23, 0.82);
+    border-bottom: 1px solid rgba(42, 51, 72, 0.8);
+    backdrop-filter: blur(16px) saturate(140%);
+    animation: fadeIn 0.4s ease both;
+}
+
+.topbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #e6edf3;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+.topbar__mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff2d78, #ff8fbd);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    box-shadow: 0 6px 18px rgba(255, 45, 120, 0.3);
+}
+
+.topbar__name {
+    font-size: 0.95rem;
+}
+
+.topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.topbar__user {
+    font-size: 0.85rem;
+    color: #7d8590;
+
+    strong {
+        color: #e6edf3;
+        font-weight: 600;
+    }
+}
+
+.topbar__logout {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid #2a3348;
+    border-radius: 0.6rem;
+    background: transparent;
+    color: #7d8590;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+
+    &:hover:not(:disabled) {
+        color: #e6edf3;
+        border-color: #ff2d78;
+        background: rgba(255, 45, 120, 0.08);
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.97);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+@media (max-width: 560px) {
+    .topbar {
+        padding: 0 1rem;
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .topbar__name,
+    .topbar__user {
+        display: none;
+    }
+
+    // Comfortable thumb-sized tap target on phones.
+    .topbar__logout {
+        min-height: 44px;
+        padding: 0.6rem 1.1rem;
+        font-size: 0.82rem;
+    }
+}
